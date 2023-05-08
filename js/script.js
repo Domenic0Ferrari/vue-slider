@@ -47,7 +47,7 @@ const app = Vue.createApp({
 			}
 		},
         clickPosition() {
-     
+            console.log('ciao')
         }
 	},
 });
