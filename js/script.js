@@ -45,7 +45,10 @@ const app = Vue.createApp({
 			if (this.activeIndex >= this.arrSlides.length) {
 				this.activeIndex = 0;
 			}
-		}
+		},
+        clickPosition() {
+     
+        }
 	},
 });
 

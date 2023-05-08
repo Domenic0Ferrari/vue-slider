@@ -38,6 +38,7 @@
 					></i>
 				</div>
 				<img
+                    @click="clickPosition"
 					v-for="(image, index) in arrSlides"
 					:key="image"
 					:src="image.image"
