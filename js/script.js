@@ -1,6 +1,8 @@
 const app = Vue.createApp({
     data(){
 		return{
+            direction: null,
+            autoplay: null,
 			activeIndex: 0,
 			arrSlides: [
                 {
@@ -49,7 +51,11 @@ const app = Vue.createApp({
         clickPosition(i){
             console.log('hai cliccato l\'immagine in posizione: ' + i);
             this.activeIndex = i;
-        }
+        },
+        startAutoplay(){
+            this.direction = true;
+            this.autoplay = setInterval(this.showNextSlide, 3000);
+          },
 	},
 });
 
