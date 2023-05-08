@@ -1,16 +1,16 @@
-* {
-	margin: 0;
+*{
+    margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
 
-.container {
+.container{
 	max-width: 1000px;
 	margin: 0 auto;
 	padding: 0 1rem;
 }
 
-.carousel {
+.carousel{
 	display: flex;
 	width: 900px;
 	max-width: 100%;
@@ -22,30 +22,30 @@
 	transform: translate(-50%, -50%);
 }
 
-.highlighted {
+.highlighted{
 	height: 100%;
 	width: 80%;
 }
 
-.thumbs {
+.thumbs{
 	position: relative;
 	display: flex;
 	flex-direction: column;
 	width: 20%;
 }
 
-.highlighted img {
+.highlighted img{
 	display: none;
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
 }
 
-.carousel .highlighted .active {
+.carousel .highlighted .active{
 	display: block;
 }
 
-.carousel .controls {
+.carousel .controls{
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -59,7 +59,7 @@
 	z-index: 9;
 }
 
-.thumbs img {
+.thumbs img{
 	flex: 1 0 0;
 	display: block;
 	width: 100%;
@@ -68,7 +68,7 @@
 	filter: brightness(.3);
 }
 
-.thumbs .active {
+.thumbs .active{
 	filter: brightness(1);
 	border: 5px solid lightgrey;
 }

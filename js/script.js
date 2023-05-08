@@ -1,6 +1,6 @@
 const app = Vue.createApp({
-    data() {
-		return {
+    data(){
+		return{
 			activeIndex: 0,
 			arrSlides: [
                 {
@@ -32,22 +32,23 @@ const app = Vue.createApp({
 		};
 	},
     methods: {
-        showPrevSlide() {
+        showPrevSlide(){
 			// settiamo il nuovo valore di active index
 			this.activeIndex--;
 			if (this.activeIndex < 0) {
 				this.activeIndex = this.arrSlides.length - 1;
 			}
 		},
-		showNextSlide() {
+		showNextSlide(){
 			// settiamo il nuovo valore di active index
 			this.activeIndex++;
 			if (this.activeIndex >= this.arrSlides.length) {
 				this.activeIndex = 0;
 			}
 		},
-        clickPosition() {
-            console.log('ciao')
+        clickPosition(i){
+            console.log('hai cliccato l\'immagine in posizione: ' + i);
+            this.activeIndex = i;
         }
 	},
 });
