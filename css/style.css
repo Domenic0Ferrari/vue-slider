@@ -1,16 +1,16 @@
-*{
-    margin: 0;
+* {
+	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
 
-.container{
+.container {
 	max-width: 1000px;
 	margin: 0 auto;
 	padding: 0 1rem;
 }
 
-.carousel{
+.carousel {
 	display: flex;
 	width: 900px;
 	max-width: 100%;
@@ -22,36 +22,53 @@
 	transform: translate(-50%, -50%);
 }
 
-.highlighted{
+.highlighted {
 	height: 100%;
 	width: 80%;
 }
 
-.thumbs{
+.highlighted .slide {
 	position: relative;
-	display: flex;
-	flex-direction: column;
-	width: 20%;
+	display: none;
+	height: 100%;
 }
 
-.highlighted img{
-	display: none;
+.highlighted img {
+	position: absolute;
+	inset: 0;
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+	object-position: center;
 }
 
-.carousel .highlighted .active{
+.highlighted .contents {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 1.5rem;
+	color: white;
+	text-align: right;
+}
+
+.carousel .highlighted .active {
 	display: block;
 }
 
-.carousel .controls{
+.thumbs {
+	position: relative;
+	width: 20%;
+}
+
+.thumbs .thumbs-imgs {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	height: 100%;
+}
+
+.carousel .btn {
 	position: absolute;
-	top: 15px;
-	bottom: 15px;
 	left: 50%;
 	transform: translateX(-50%);
 	color: white;
@@ -59,7 +76,15 @@
 	z-index: 9;
 }
 
-.thumbs img{
+.carousel .btn-prev {
+	top: 15px;
+}
+
+.carousel .btn-next {
+	bottom: 15px;
+}
+
+.thumbs img {
 	flex: 1 0 0;
 	display: block;
 	width: 100%;
@@ -68,7 +93,7 @@
 	filter: brightness(.3);
 }
 
-.thumbs .active{
+.thumbs .active {
 	filter: brightness(1);
 	border: 5px solid lightgrey;
 }

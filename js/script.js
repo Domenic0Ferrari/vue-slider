@@ -1,9 +1,11 @@
 const app = Vue.createApp({
     data(){
 		return{
-            direction: null,
-            autoplay: null,
-			activeIndex: 0,
+            activeIndex: 0,
+            sliderDirection: 1,
+            isAutorun: true,
+            autoRunTime: 1000,
+            idAutorun: null,
 			arrSlides: [
                 {
                 image: 'img/01.webp',
@@ -35,14 +37,12 @@ const app = Vue.createApp({
 	},
     methods: {
         showPrevSlide(){
-			// settiamo il nuovo valore di active index
 			this.activeIndex--;
 			if (this.activeIndex < 0) {
 				this.activeIndex = this.arrSlides.length - 1;
 			}
 		},
 		showNextSlide(){
-			// settiamo il nuovo valore di active index
 			this.activeIndex++;
 			if (this.activeIndex >= this.arrSlides.length) {
 				this.activeIndex = 0;
@@ -59,4 +59,5 @@ const app = Vue.createApp({
 	},
 });
 
-app.mount('.carousel');
+app.mount('.slider'); 
+// serve per montare la nostra applicazione nell'HTML

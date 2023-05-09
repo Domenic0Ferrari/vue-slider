@@ -13,40 +13,54 @@
 <body>
 
     <div class="container">
-		<div class="carousel">
-			<div class="highlighted">
-				<img
-					v-for="(image, index) in arrSlides"
-					:key="image"
-					:src="image.image"
-					alt=""
-					:class="{active: index == activeIndex}"
-				>
-				<!-- :class="index == activeIndex ? 'active' : ''" -->
-			</div>
-
-			<!-- div con le miniature -->
-			<div class="thumbs">
-				<div class="controls">
-					<i
-						class="bi bi-arrow-up-circle-fill btn btn-prev"
-						@click="showPrevSlide"
-					></i>
-					<i
-						class="bi bi-arrow-down-circle-fill btn btn-next"
-						@click="showNextSlide"
-					></i>
+		<div class="slider">
+			<div 
+			class="carousel"
+			@mouseover="stopAutorun"
+			@mouseout="runSlider"
+			>
+				<div class="highlighted"> 	
+					<div 
+					v-for="(slide, i) in arrSlides"
+					class="slide"
+					:class="{active: i == activeIndex}"
+					>
+						<img
+						:src="slide.image"
+						:alt="slide.title"
+						>
+						<div class="contents">
+							<h2>{{ slide.title }}</h2>
+							<p>{{ slide.text }}</p>
+						</div>
+					</div>	
 				</div>
-				<img
-                    @click="clickPosition(index)"
-					v-for="(image, index) in arrSlides"
-					:key="image"
-					:src="image.image"
-					alt=""
-					:class="{active: index == activeIndex}"
-				>
-                <button @click="startAutoplay">GO</button>
+				
+			
+
+				<!-- div con le miniature -->
+				<div class="thumbs">
+					<i 
+					class="bi bi-arrow-up-circle-fill btn btn-prev"
+					@click="showPrevSlide"
+					></i>
+					<i 
+					class="bi bi-arrow-down-circle-fill btn btn-next"
+					@click="showNextSlide"
+					></i>
+					<div class="thumbs-imgs">
+						<img
+						v-for="(slide, i) in arrSlides"
+						:src="slide.image"
+						:alt="slide.title"
+						:class="i == activeIndex ? 'active' : '' "
+						@click="clickPosition(i)"
+						>
+					</div>
+				</div>
 			</div>
+			<button class="btn-controller">GO</button>
+			<button class="btn-invert">INVERT</button>
 		</div>
 	</div>
 
