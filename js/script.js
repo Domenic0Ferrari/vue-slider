@@ -4,7 +4,7 @@ const app = Vue.createApp({
             activeIndex: 0,
             sliderDirection: 1,
             isAutorun: true,
-            autoRunTime: 1000,
+            autoRunTime: 2000,
             idAutorun: null,
 			arrSlides: [
                 {
@@ -52,10 +52,33 @@ const app = Vue.createApp({
             console.log('hai cliccato l\'immagine in posizione: ' + i);
             this.activeIndex = i;
         },
-        startAutoplay(){
-            this.direction = true;
-            this.autoplay = setInterval(this.showNextSlide, 3000);
-          },
+        toggleAutorun(){
+			this.isAutorun = !this.isAutorun;
+		},
+        runSlider(){
+			if (this.isAutorun) {
+				this.idAutorun = setInterval(
+					() => this.sliderDirection == 1 ? this.showNextSlide() : this.showPrevSlide(),
+					this.autoRunTime
+				);
+			} else {
+				clearInterval(this.idAutorun);
+			}
+		},
+        stopAutorun(){
+			clearInterval(this.idAutorun);
+		},
+        invertSliderDirection(){
+			this.sliderDirection *= -1;
+		}
+	},
+    watch:{
+		isAutorun(){
+			this.runSlider();
+		},
+	},
+	mounted(){
+		this.runSlider();
 	},
 });
 

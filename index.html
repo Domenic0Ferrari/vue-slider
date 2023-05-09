@@ -59,8 +59,16 @@
 					</div>
 				</div>
 			</div>
-			<button class="btn-controller">GO</button>
-			<button class="btn-invert">INVERT</button>
+			<button
+			class="btn-controller"				@click="toggleAutorun"
+			>
+			{{ isAutorun ? 'STOP' : 'START' }}
+			</button>
+			<button class="btn-invert"
+			@click="invertSliderDirection"
+			>
+			INVERT
+			</button>
 		</div>
 	</div>
 
